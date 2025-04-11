@@ -1,15 +1,25 @@
 "use client";
 
-import Item from "@/components/gradient-line-filter";
-import { useScroll, useTransform } from "motion/react";
+import Item from "@/components/gradient-lines-filter";
+import { useScroll } from "motion/react";
 
 import { useRef } from "react";
 
 const source = [
   {
+    id: 1,
     img: "/img-1.jpg"
   },
   {
+    id: 2,
+    img: "/img-2.jpg"
+  },
+  {
+    id: 3,
+    img: "/img-3.jpg"
+  },
+  {
+    id: 4,
     img: "/img-4.jpg"
   }
 ];
@@ -22,16 +32,14 @@ export default function Home() {
     offset: ["start start", "end end"]
   });
 
-  const transformedScroll = useTransform(scroll, [0, 1], [1, 0]);
-
   return (
     <section>
       <div className="h-dvh bg-neutral-950" />
-      <div ref={ref} className="relative min-h-[300dvh] ">
-        <div className="sticky top-0 h-dvh">
+      <div ref={ref} className="relative h-[300dvh] ">
+        <div className="sticky top-0 h-dvh overflow-hidden">
           {source.map((item, index) => (
             <Item
-              key={index}
+              key={item.id}
               breakpoint={1 / source.length}
               scrollYProgess={scroll}
               imgSrc={item.img}
