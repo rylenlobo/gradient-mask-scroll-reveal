@@ -1,9 +1,5 @@
-"use client";
-
-import Item from "@/components/gradient-lines-filter";
-import { useScroll } from "motion/react";
-
-import { useRef } from "react";
+import GradientLinesContainer from "@/components/gradient-lines-container";
+import GradientLineItem from "@/components/gradient-lines-filter";
 
 const source = [
   {
@@ -14,6 +10,7 @@ const source = [
     id: 2,
     img: "/img-2.jpg"
   },
+
   {
     id: 3,
     img: "/img-3.jpg"
@@ -25,29 +22,16 @@ const source = [
 ];
 
 export default function Home() {
-  const ref = useRef(null);
-
-  const { scrollYProgress: scroll } = useScroll({
-    target: ref,
-    offset: ["start start", "end end"]
-  });
-
   return (
     <section>
       <div className="h-dvh bg-neutral-950" />
-      <div ref={ref} className="relative h-[300dvh] ">
-        <div className="sticky top-0 h-dvh overflow-hidden">
-          {source.map((item, index) => (
-            <Item
-              key={item.id}
-              breakpoint={1 / source.length}
-              scrollYProgess={scroll}
-              imgSrc={item.img}
-              index={index}
-            />
-          ))}
-        </div>
-      </div>
+
+      <GradientLinesContainer>
+        {source.map((item, index) => (
+          <GradientLineItem key={item.id} index={index} img={item.img} />
+        ))}
+      </GradientLinesContainer>
+
       <div className="h-dvh bg-neutral-950" />
     </section>
   );
