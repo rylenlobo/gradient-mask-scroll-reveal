@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "lenis": "^1.2.3",
+    "lucide-react": "^0.503.0",
     "motion": "^12.6.3",
     "next": "15.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss-animated": "^2.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
