@@ -1,7 +1,11 @@
 "use client";
+import ShinyText from "@/components/animated/ShinyText";
 import GradientLinesContainer from "@/components/gradient-scroll-transition/gradient-lines-container";
 import GradientLineItem from "@/components/gradient-scroll-transition/gradient-lines-filter";
+import { CircleChevronDown, Github, Instagram, Linkedin } from "lucide-react";
 import { motion } from "motion/react";
+import Image from "next/image";
+import Link from "next/link";
 
 const source = [
   {
@@ -35,11 +39,12 @@ export default function Home() {
       <section className="relative h-dvh overflow-hidden">
         {/* Video */}
         <motion.div
-          className="absolute inset-0 z-30 will-change-transform"
-          initial={{ opacity: 0, scale: 1.2 }}
+          className="mask-b-from-5% absolute inset-0 z-30 will-change-transform"
+          initial={{ opacity: 0, scale: 1.3 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
-            duration: 0.9,
+            delay: 0.2,
+            duration: 1,
             type: "tween",
             ease: "easeOut"
           }}
@@ -48,16 +53,16 @@ export default function Home() {
             className="h-full w-full object-cover"
             loop
             muted
-            autoPlay
             playsInline
+            autoPlay
           >
             <source
-              src="/videos/Japan-mobile.mp4"
+              src="https://res.cloudinary.com/dybm2eah3/video/upload/v1745561797/Japan/Japan-mobile_ediohm.mp4"
               type="video/mp4"
               media="(max-width: 640px)"
             />
             <source
-              src="/videos/Japan-laptop.mp4"
+              src="https://res.cloudinary.com/dybm2eah3/video/upload/v1745561864/Japan/Japan-laptop_u7vric.mp4"
               type="video/mp4"
               media="(min-width: 1025px)"
             />
@@ -65,22 +70,102 @@ export default function Home() {
           </video>
         </motion.div>
 
-        <div className="absolute inset-0 text-shadow-md bg-gradient-to-b from-black/70 via-black/30 to-transparent flex flex-col gap-6 items-center justify-center text-[#ebe2c4]  z-40">
-          <h1 className="text-3xl  md:text-8xl tracking-tighter  font-extralight font-swarabi-mincho opacity-90">
-            日本
-          </h1>
-          <h1 className="text-2xl md:text-5xl tracking-wide text-center leading-snug font-basis-grotesque ">
-            Made with Code. Inspired by Japan.
-          </h1>
-          <p className="text-sm md:text-xl tracking-widest font-medium uppercase font-swarabi-mincho ">
-            A Frontend Dev&apos;s Ode to Culture, Aesthetics, and Experience
-            Design
-          </p>
+        <div className=" md:px-8 md:pr-3.5 pb-16  md:pb-28  absolute inset-0 text-shadow-md  flex flex-col md:flex-row items-start md:items-end gap-4 justify-end  mb-5 md:m-0 md:justify-between text-[#ebe2c4] z-40">
+          <div className="flex flex-col gap-4 md:gap-6 items-start justify-center">
+            <div className="pl-4">
+              <h1 className="flex items-center gap-4 text-[1.9rem] sm:text-3xl md:text-5xl lg:text-6xl  tracking-wide leading-tight font-basis-grotesque">
+                Made with{" "}
+                <div className=" relative inline-block w-16 h-8 md:w-28 md:h-12 rounded-full overflow-hidden hover:animate-shake  shrink-0">
+                  <Image
+                    src="https://res.cloudinary.com/dybm2eah3/image/upload/v1745561732/Japan/pill-1_jzsw9i.jpg"
+                    fill={true}
+                    alt="Japan theme with code"
+                    className="object-cover"
+                  />
+                </div>{" "}
+                Code, <br />
+              </h1>
+              <h1 className="flex items-center gap-4 text-[1.9rem] sm:text-3xl md:text-5xl lg:text-6xl  tracking-wide leading-tight font-basis-grotesque">
+                Inspired By Japan
+                <div className=" relative inline-block w-16 h-8 md:w-28 md:h-12 rounded-full overflow-hidden hover:animate-shake shrink-0">
+                  <Image
+                    src="https://res.cloudinary.com/dybm2eah3/image/upload/v1745561731/Japan/pill-2_z2sljl.jpg"
+                    fill={true}
+                    alt="Japan theme with code"
+                    className="object-cover"
+                  />
+                </div>{" "}
+                <br />
+              </h1>
+            </div>
+            <p className="pl-4 text-xs text-pretty md:text-base tracking-widest leading-loose md:leading-relaxed uppercase font-swarabi-mincho max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl">
+              A Frontend Dev’s Ode to Culture, Aesthetics, and the Art of
+              Experience Design Bridging pixels and people, where every line of
+              code echoes intention, emotion, and elegance.
+            </p>
+          </div>
+          <div className="pl-4 flex-row md:flex-col gap-4 flex">
+            <Link
+              href="https://www.instagram.com/rylenlobo.dev"
+              aria-label="Visit Rylen Lobo's Instagram profile"
+              target="_blank"
+            >
+              <div className="flex justify-center items-center border border-[#ebe2c4] p-2 md:p-3 rounded-full hover:bg-[#ebe2c4] hover:text-[#161616] transition-colors">
+                <Instagram className="size-5 md:size-6" aria-hidden="true" />
+              </div>
+            </Link>
+            <Link
+              href="https://www.github.com/rylenlobo"
+              target="_blank"
+              aria-label="Visit Rylen Lobo's Github profile"
+            >
+              <div className="flex justify-center items-center border border-[#ebe2c4] p-2 md:p-3 rounded-full hover:bg-[#ebe2c4] hover:text-[#161616] transition-colors">
+                <Github className="size-5 md:size-6" aria-hidden="true" />
+              </div>
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/rylenlobo"
+              target="_blank"
+              aria-label="Visit Rylen Lobo's LinkedIn profile"
+            >
+              <div className="flex justify-center items-center border border-[#ebe2c4] p-2 md:p-3 rounded-full hover:bg-[#ebe2c4] hover:text-[#161616] transition-colors">
+                <Linkedin className="size-5 md:size-6" aria-hidden="true" />
+              </div>
+            </Link>
+          </div>
         </div>
+
+        <div className="text-[#ebe2c4] absolute bottom-0 w-full p-5 md:px-12 md:pr-4  z-40">
+          <motion.div
+            initial={{ scaleX: 0, originX: "center" }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.7, ease: "circOut" }}
+            className="h-[0.5px] bg-[#ebe2c4]"
+          />
+          <div className="flex gap-3 justify-center md:justify-start  items-center mt-4 text-xs md:text-sm">
+            <CircleChevronDown className="size-5 md:size-6" />
+            <ShinyText className="uppercase text-sm md:text-base">
+              Scroll to explore
+            </ShinyText>
+          </div>
+        </div>
+
+        <motion.div
+          className="absolute h-dvh w-dvw bg-[#161616] z-50 "
+          initial={{ opacity: 1 }}
+          viewport={{ once: true }}
+          whileInView={{ opacity: 0, zIndex: 1 }}
+          transition={{
+            delay: 0.2,
+            duration: 1,
+            type: "tween",
+            ease: "easeOut"
+          }}
+        ></motion.div>
       </section>
 
       {/* Section - 2 */}
-      <section className="h-dvh flex items-center justify-evenly p-10">
+      {/* <section className="h-dvh flex items-center justify-evenly">
         <div>
           {" "}
           <svg
@@ -1130,7 +1215,7 @@ export default function Home() {
             />
           </svg>
         </div>
-      </section>
+      </section> */}
 
       {/* Section - 3 */}
       <section>
